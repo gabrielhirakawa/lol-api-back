@@ -1,14 +1,16 @@
-const { json } = require("express");
 const express = require("express");
+const { json } = require("express");
+require("dotenv").config();
+
 const axios = require("axios");
 const cors = require("cors");
-require("dotenv").config();
+
 
 const app = express();
 
 app.use(json());
 app.use(cors());
-app.listen(3333);
+app.listen(process.env.PORT || 3333);
 
 app.get('/', async(req, res) => {
   res.json({
