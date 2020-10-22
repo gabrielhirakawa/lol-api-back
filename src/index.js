@@ -10,6 +10,12 @@ app.use(json());
 app.use(cors());
 app.listen(3333);
 
+app.get('/', async(req, res) => {
+  res.json({
+    message: 'hello world'
+  })
+})
+
 app.get("/summoner/:summonerName", async (req, res) => {
   const { summonerName } = req.params;
   const summonerIdResponse = await axios
